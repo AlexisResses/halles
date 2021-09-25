@@ -2,7 +2,13 @@
 
 @section('content')
     <div class="container" id="containerContent">
-
+      <h2 class="text-center">Contact</h2>
+      <div class="mb-3 text-center">
+        <p>
+          Vous pouvez joindre notre équipe par téléphone au : 0606060606 pendant les horaires d'ouvertures. 
+        </p>
+        <button href="{{ url('/localisation')}}" class="btn btn-primary">Voir les horaires</button>
+      </div>
         <form action="/contact" method="POST">
             @csrf
             <div class="mb-3">

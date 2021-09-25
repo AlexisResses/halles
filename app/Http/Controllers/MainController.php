@@ -17,4 +17,9 @@ class MainController extends Controller
     public function location(){
         return view('location');
     }
+
+    public function staff(){
+        return view('auth.login');
+    }
 }
+
