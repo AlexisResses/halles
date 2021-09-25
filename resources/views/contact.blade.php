@@ -2,23 +2,51 @@
 
 @section('content')
     <div class="container" id="containerContent">
-        <form action="" method="POST">
+
+        <form action="/contact" method="POST">
             @csrf
             <div class="mb-3">
                 <label for="name" class="form-label">Nom</label>
-                <input type="text" class="form-control" id="name" placeholder="Votre nom" value="{{ old('name')}}">
-              </div>
+                <input type="text" class="form-control" name="name" id="name" placeholder="Votre nom"
+                    value="{{ old('name') }}">
+                @error('name')
+                <div class="alert alert-danger">
+                  {{ $message }}
+                </div>
+                @enderror
+            </div>
             <div class="mb-3">
                 <label for="email" class="form-label">Adresse Mail</label>
-                <input type="email" class="form-control" id="email" placeholder="Votre adresse mail" value="{{ old('email')}}">
-              </div>
-              <div class="mb-3">
-                <label for="demande" class="form-label">Votre demande</label>
-                <textarea class="form-control" id="demande" rows="6" value="{{ old('demande')}}"></textarea>
-              </div>
-              <div class="col-12">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Votre adresse mail"
+                    value="{{ old('email') }}">
+                @error('email')
+                <div class="alert alert-danger">
+                  {{ $message }}
+                </div>
+                @enderror
+            </div>
+            <div class="mb-3">
+                <label for="phone" class="form-label">Numéro de téléphone</label>
+                <input type="phone" class="form-control" name="phone" id="phone" placeholder="Votre numéro de téléphone"
+                    value="{{ old('phone') }}">
+                @error('phone')
+                <div class="alert alert-danger">
+                  {{ $message }}
+                </div>
+                @enderror
+            </div>
+            <div class="mb-3">
+                <label for="demand" class="form-label">Votre demande</label>
+                <textarea class="form-control" name="demand" id="demand" rows="6" value="{{ old('demand') }}"></textarea>
+                @error('demand')
+                <div class="alert alert-danger">
+                  {{ $message }}
+                </div>
+                @enderror
+            </div>
+            <div class="col-12">
                 <button class="btn btn-primary" type="submit">Envoyer</button>
-              </div>
+            </div>
         </form>
     </div>
 @endsection
