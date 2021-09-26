@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/',[MainController::class, 'home']);
-Route::get('/localisation',[MainController::class, 'location']);
+Route::get('/localisation',[MainController::class, 'location'])->name('location');
 
 
 Route::get('/contact',[ContactController::class, 'create']);
@@ -24,5 +24,8 @@ Route::post('/contact', [ContactController::class, 'store']);
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [ContactController::class, 'index'])->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->get('/contact/{id}', [ContactController::class, 'show'])->name('contact');
+
+Route::middleware(['auth:sanctum', 'verified'])->delete('/delete/{id}', [ContactController::class, 'destroy'])->name('delete');
 
 

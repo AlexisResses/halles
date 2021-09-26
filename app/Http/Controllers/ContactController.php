@@ -52,7 +52,8 @@ class ContactController extends Controller
      */
     public function show($id)
     {
-        //
+        $contact = Contact::where('id', $id)->firstOrFail();
+        return view('show', [ 'contact' => $contact]);
     }
 
     /**
@@ -86,6 +87,9 @@ class ContactController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Contact::findOrFail($id)->delete();
+        
+        return redirect('/dashboard');
+        
     }
 }

@@ -7,7 +7,7 @@
         <p>
           Vous pouvez joindre notre équipe par téléphone au : 0606060606 pendant les horaires d'ouvertures. 
         </p>
-        <button href="{{ url('/localisation')}}" class="btn btn-primary">Voir les horaires</button>
+        <button onclick="window.location='{{ route("location") }}'" class="btn btn-primary">Voir les horaires</button>
       </div>
         <form action="/contact" method="POST">
             @csrf
